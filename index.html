@@ -52,10 +52,12 @@
       document.querySelectorAll('.help-content').forEach(function(el) {
         el.style.display = 'none';
       });
+      console.log('Prompts displayed');
     }
 
     function copyPrompt(text) {
       navigator.clipboard.writeText(text).then(function() {
+        console.log('Text copied');
         document.getElementById('prompt-container').style.display = 'none';
         document.getElementById('confirmation').style.display = 'block';
       }).catch(function(err) {
@@ -71,6 +73,7 @@
       document.getElementById('prompt-container').style.display = 'none';
       document.getElementById('confirmation').style.display = 'none';
       document.getElementById('help-page').style.display = 'block';
+      console.log('Help page displayed');
     }
 
     function showHelpContent(id) {
@@ -79,6 +82,7 @@
         el.style.display = 'none';
       });
       document.getElementById(id).style.display = 'block';
+      console.log('Help content displayed: ' + id);
     }
   </script>
 </head>
@@ -96,35 +100,3 @@
     <!-- Confirmation Screen -->
     <div id="confirmation" class="confirmation">
       <h1>Prompt Copied!</h1>
-      <p>Your prompt has been copied. You can now paste it into ChatGPT or another AI chatbot.</p>
-      <a href="https://chat.openai.com" target="_blank">Open ChatGPT</a><br>
-      <a href="https://www.example.com/another-chatbot" target="_blank">Open Gemini</a><br><br>
-      <button onclick="backToPrompts()">Back to Prompts</button>
-      <button onclick="showHelp()">Help</button>
-    </div>
-
-    <!-- Help Page -->
-    <div id="help-page" class="help-page">
-      <h1>Help</h1>
-      <p>Select your AI tool:</p>
-      <ul>
-        <li><a href="#chatgpt" onclick="showHelpContent('chatgpt')">Instructions for ChatGPT</a></li>
-        <li><a href="#gemini" onclick="showHelpContent('gemini')">Instructions for Gemini</a></li>
-      </ul>
-      <button onclick="showPrompts()">Back to Prompts</button>
-    </div>
-
-    <!-- Instructions Pages (Hidden) -->
-    <div id="chatgpt" class="help-content">
-      <h2>Instructions for ChatGPT</h2>
-      <p>Paste your copied prompt into ChatGPT's chat box and press Enter.</p>
-      <button onclick="showHelp()">Back to Help</button>
-    </div>
-    <div id="gemini" class="help-content">
-      <h2>Instructions for Gemini</h2>
-      <p>Paste your copied prompt into Gemini's chat box and press Enter.</p>
-      <button onclick="showHelp()">Back to Help</button>
-    </div>
-  </div>
-</body>
-</html>
