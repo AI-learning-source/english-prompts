@@ -100,3 +100,32 @@
     <!-- Confirmation Screen -->
     <div id="confirmation" class="confirmation">
       <h1>Prompt Copied!</h1>
+      <p>The text has been copied to your clipboard. You can now paste it into ChatGPT or Gemini.</p>
+      <a href="#" onclick="showHelp()">Help</a>
+      <button onclick="showPrompts()">Back to Prompts</button>
+    </div>
+
+    <!-- Help Page -->
+    <div id="help-page" class="help-page">
+      <h1>Help</h1>
+      <button onclick="showHelpContent('chatgpt-help')">ChatGPT</button>
+      <button onclick="showHelpContent('gemini-help')">Gemini</button>
+      <button onclick="showPrompts()">Back to Prompts</button>
+    </div>
+
+    <!-- Help Content for ChatGPT -->
+    <div id="chatgpt-help" class="help-content">
+      <h1>Help with ChatGPT</h1>
+      <p>To use the copied prompt with ChatGPT, open the ChatGPT application or website, paste the prompt into the input field, and start the conversation.</p>
+      <button onclick="showHelp()">Back to Help</button>
+    </div>
+
+    <!-- Help Content for Gemini -->
+    <div id="gemini-help" class="help-content">
+      <h1>Help with Gemini</h1>
+      <p>To use the copied prompt with Gemini, open the Gemini application or website, paste the prompt into the input field, and start the conversation.</p>
+      <button onclick="showHelp()">Back to Help</button>
+    </div>
+  </div>
+</body>
+</html>
