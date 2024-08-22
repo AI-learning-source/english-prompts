@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+    .prompt-list {
+      list-style-type: none;
+      padding: 0;
+    }
+    .prompt-list li {
+      margin: 10px 0;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .confirmation, .help-page {
+      display: none;
+    }
+    .help-page ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .help-page li {
+      margin: 10px 0;
+    }
+    .back-button, .help-button {
+      margin-top: 20px;
+    }
+    @media (max-width: 600px) {
+      button {
+        width: 100%;
+        font-size: 16px;
+      }
+    }
+  </style>
+  <script>
+    function showPrompts() {
+      document.getElementById('prompt-container').style.display = 'block';
+      document.getElementById('confirmation').style.display = 'none';
+      document.getElementById('help-page').style.display = 'none';
+    }
+
+    function copyPrompt(text) {
+      navigator.clipboard.writeText(text).then(function() {
+        document.getElementById('prompt-container').style.display = 'none';
+        document.getElementById('confirmation').style.display = 'block';
+      });
+    }
+
+    function backToPrompts() {
+      showPrompts();
+    }
+
+    function showHelp() {
+      document.getElementById('prompt-container').style.display = 'none';
+      document.getElementById('confirmation').style.display = 'none';
+      document.getElementById('help-page').style.display = 'block';
+    }
+  </script>
+</head>
+<body onload="showPrompts()">
+  <div class="container">
+    <!-- Prompt List -->
+    <div id="prompt-container">
+      <h1>Select a Prompt to Copy</h1>
+      <ul class="prompt-list">
+        <li><button onclick="copyPrompt('"""My first language is Khmer, but I work with Americans, so I want to improve my English skills. I would like to create an English language learning plan for practice tailored to my needs. Engage in a conversation with me to understand my unique goals for personal and professional improvement. 
+Start by asking me about my current mastery of the language and my comfort level, which will help you determine the appropriate language level for our discussion. 
+Focus on understanding what specific aspects of my English I want to improve, such as conversation skills, vocabulary, or grammar. Determine what types of exercises I find most appealing and best suit my learning style. Instead of asking directly what my learning style is, provide examples and ask me what my preference is.  
+Please consider my personal circumstances when suggesting exercises. The goal is for these activities to be easy and natural for me to implement. You can ask me questions about my daily routine so that you can better understand my personal circumstances. For example, if I am a receptionist, suggest exercises that can be done discretely at work. If I have a long commute, suggest exercises that can be done while commuting. If I spend a lot of time cooking each day, suggest exercises that can be done while cooking. (For clarification, when I say “suggest exercises,” I mean in the learning plan, which you will create once you have sufficient information.)  
+Once you have gathered enough information about my needs, ask logistical questions like how often I want to practice and how much time I can dedicate to each session. 
+Remember that the questions and examples here are meant as a guide, not a strict list of questions to ask. Keep the conversation natural and flexible, adjusting based on my responses, and feel free to follow up with relevant questions. Please ask one question at a time to avoid overwhelming me. 
+After gathering sufficient information, please create a study plan with a variety of activities that target my specific language goals and are tailored to my lifestyle so that I can implement them naturally. 
+Once you create a study plan, ask me specific questions (one at a time) obtain the best feedback on the study plan so that you can make sure it really fits my needs. If I don’t have any suggestions, reassess whether the plan best fits my needs, see if there are any ways it can be improved and then propose an improved study plan.""" 
+)">Prompt for English Practice</button></li>
+        <li><button onclick="copyPrompt('"""I am preparing for the MET exam. Please help me create a comprehensive English language learning plan specifically for this. Engage in a conversation with me to understand my unique goals and requirements. 
+Focus on understanding where I’m at and what I need to work on. Ask me my current level, what I want to score when I next take the exam, and when my next exam is so that you can create a study plan which covers all the necessary content before then. Ask about the specific sections and skills I’m worried about and need to focus on so that this plan better fits my needs as a learner.  
+Once you have gathered enough information about my needs, ask logistical questions like how often I want to practice and how much time I can dedicate to each session. Please make sure to find out about my life circumstances so that you better understand what sort of practice works for me. Ask about my daily routine and any time constraints and other factors that could impact my learning schedule. 
+Remember that the questions and examples here are meant as a guide, not a strict list of questions to ask. Keep the conversation natural and flexible, adjusting based on my responses, and feel free to follow up with relevant questions. Please ask one question at a time to avoid overwhelming me. 
+After you feel you have enough information, you may construct a detailed study plan with a schedule of topics to cover, potential exercises I can do to improve, and resources I can use. Prioritize areas where I need the most improvement and ensure the plan aligns with the MET exam’s structure. Make sure to keep in mind when the exam will be taking place and ensure that all topics are covered by then.  
+Once you create a study plan, ask me specific questions (one at a time) obtain the best feedback on the study plan so that you can make sure it really fits my needs. If I don’t have any suggestions, reassess whether the plan best fits my needs, see if there are any ways it can be improved and then propose an improved study plan." 
+""')">Prompt for Test Preparation</button></li>
+        <!-- Add more prompts as needed -->
+      </ul>
+    </div>
+
+    <!-- Confirmation Screen -->
+    <div id="confirmation" class="confirmation">
+      <h1>Prompt Copied!</h1>
+      <p>Your prompt has been copied. You can now paste it into ChatGPT or another AI chatbot.</p>
+      <a href="https://chat.openai.com" target="_blank">Open ChatGPT</a><br>
+      <a href="https://www.example.com/another-chatbot" target="_blank">Open Gemini</a><br><br>
+      <button class="back-button" onclick="backToPrompts()">Back to Prompts</button>
+      <button class="help-button" onclick="showHelp()">Help</button>
+    </div>
+
+    <!-- Help Page -->
+    <div id="help-page" class="help-page">
+      <h1>Help</h1>
+      <p>Select your AI tool:</p>
+      <ul>
+        <li><a href="#chatgpt">Instructions for ChatGPT</a></li>
+        <li><a href="#gemini">Instructions for Gemini</a></li>
+      </ul>
+      <button class="back-button" onclick="showPrompts()">Back to Prompts</button>
+    </div>
+  </div>
+
+  <!-- Instructions Pages (Hidden) -->
+  <div id="chatgpt" style="display:none;">
+    <h2>Instructions for ChatGPT</h2>
+    <p>Paste your copied prompt into ChatGPT's chat box and press Enter.</p>
+    <button class="back-button" onclick="showHelp()">Back to Help</button>
+  </div>
+  <div id="gemini" style="display:none;">
+    <h2>Instructions for Gemini</h2>
+    <p>Paste your copied prompt into Gemini's chat box and press Enter.</p>
+    <button class="back-button" onclick="showHelp()">Back to Help</button>
+  </div>
+</body>
+</html>
